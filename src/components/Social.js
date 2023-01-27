@@ -5,7 +5,6 @@ import LoadingAndError from "./LoadingAndError";
 const Social = () => {
   const [signInWithGoogle, , loading, error] = useSignInWithGoogle(auth);
   if (loading || error) {
-    console.log(loading, error);
     <LoadingAndError loading={loading} error={error}></LoadingAndError>;
     return;
   }

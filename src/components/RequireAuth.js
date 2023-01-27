@@ -8,7 +8,6 @@ const RequireAuth = ({ children }) => {
   const [user, loading, error] = useAuthState(auth);
   let location = useLocation();
   if (loading || error) {
-    console.log(loading, error);
     return <LoadingAndError loading={loading} error={error}></LoadingAndError>;
   }
   if (user?.uid) {

@@ -8,7 +8,6 @@ import LoadingAndError from "./LoadingAndError";
 const Navbar = () => {
   const [user, loading, error] = useAuthState(auth);
   if (loading || error) {
-    console.log(loading, error);
     <LoadingAndError loading={loading} error={error}></LoadingAndError>;
     return;
   }

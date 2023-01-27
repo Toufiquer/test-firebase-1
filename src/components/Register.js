@@ -16,7 +16,6 @@ const Register = () => {
     }
   }, [user?.uid, from, navigate]);
   if (loading || error) {
-    console.log(loading, error);
     <LoadingAndError loading={loading} error={error}></LoadingAndError>;
     return;
   }
