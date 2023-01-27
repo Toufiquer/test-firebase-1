@@ -3,11 +3,13 @@ import auth from "../firebase";
 import { useSignInWithGoogle } from "react-firebase-hooks/auth";
 import LoadingAndError from "./LoadingAndError";
 const Social = () => {
-  const [signInWithGoogle, user, loading, error] = useSignInWithGoogle(auth);
-  <LoadingAndError loading={loading} error={error}></LoadingAndError>;
-  if (user?.uid) {
+  const [signInWithGoogle, , loading, error] = useSignInWithGoogle(auth);
+  if (loading || error) {
+    console.log(loading, error);
+    <LoadingAndError loading={loading} error={error}></LoadingAndError>;
     return;
   }
+
   return (
     <div>
       Social
