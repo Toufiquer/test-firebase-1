@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useLocation, useNavigate } from "react-router-dom";
 import auth from "../firebase";
-import LoadingAndError from "./LoadingAndError";
+import Loading from "./Loading";
 import Social from "./Social";
 
 const Register = () => {
@@ -15,14 +15,17 @@ const Register = () => {
       navigate(from, { replace: true });
     }
   }, [user?.uid, from, navigate]);
-  if (loading || error) {
-    <LoadingAndError loading={loading} error={error}></LoadingAndError>;
+  if (loading) {
+    return <Loading></Loading>;
+  }
+  if (error) {
+    console.log("error: ", error);
     return;
   }
-  function handleSubmit(event) {
-    event.preventDefault();
-    navigate(from, { replace: true });
-  }
+  // function handleSubmit(event) {
+  //   event.preventDefault();
+  //   navigate(from, { replace: true });
+  // }
   return (
     <div>
       Register

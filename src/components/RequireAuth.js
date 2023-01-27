@@ -2,13 +2,17 @@ import React from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { Navigate, useLocation } from "react-router-dom";
 import auth from "../firebase";
-import LoadingAndError from "./LoadingAndError";
+import Loading from "./Loading";
 
 const RequireAuth = ({ children }) => {
   const [user, loading, error] = useAuthState(auth);
   let location = useLocation();
-  if (loading || error) {
-    return <LoadingAndError loading={loading} error={error}></LoadingAndError>;
+  if (loading) {
+    return <Loading></Loading>;
+  }
+  if (error) {
+    console.log("error: ", error);
+    return;
   }
   if (user?.uid) {
     return <div>{children}</div>;

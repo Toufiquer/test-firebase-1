@@ -3,12 +3,15 @@ import React from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { Link } from "react-router-dom";
 import auth from "../firebase";
-import LoadingAndError from "./LoadingAndError";
+import Loading from "./Loading";
 
 const Navbar = () => {
   const [user, loading, error] = useAuthState(auth);
-  if (loading || error) {
-    <LoadingAndError loading={loading} error={error}></LoadingAndError>;
+  if (loading) {
+    return <Loading></Loading>;
+  }
+  if (error) {
+    console.log("error: ", error);
     return;
   }
   return (

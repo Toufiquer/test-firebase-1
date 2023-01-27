@@ -10,6 +10,8 @@ import Register from "./components/Register";
 import "./App.css";
 import RequireAuth from "./components/RequireAuth";
 import TitleWithComponent from "./components/TitleWithComponent";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 const App = () => {
   return (
     <div>
@@ -74,6 +76,7 @@ const App = () => {
           }
         ></Route>
       </Routes>
+      <ToastContainer />
     </div>
   );
 };
