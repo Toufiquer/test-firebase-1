@@ -22,6 +22,6 @@ yarn-debug.log*
 yarn-error.log*
 
 # Add by me
-
+.env
 firebase.js
 .gitignore
