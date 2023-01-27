@@ -6,7 +6,7 @@ import Social from "./Social";
 import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
 import Loading from "./Loading";
 import { toast } from "react-toastify";
-const customId = "LogIn Toast";
+const customId = "Log In Toast";
 const LogIn = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -46,7 +46,7 @@ const LogIn = () => {
       <form onSubmit={handleSubmit}>
         <input type="email" placeholder="Enter Your Email" onBlur={(e) => setEmail(e.target.value)} />
         <input type="password" onBlur={(e) => setPassword(e.target.value)} />
-        <button>Sign In</button>
+        <button>LogIn</button>
       </form>
       <Social></Social>
     </div>
