@@ -9,25 +9,70 @@ import Private from "./components/Private";
 import Register from "./components/Register";
 import "./App.css";
 import RequireAuth from "./components/RequireAuth";
+import TitleWithComponent from "./components/TitleWithComponent";
 const App = () => {
   return (
     <div>
       <Navbar></Navbar>
       <Routes>
-        <Route path={"/"} element={<Home></Home>}></Route>
-        <Route path={"/home"} element={<Home></Home>}></Route>
-        <Route path={"/about"} element={<About></About>}></Route>
+        <Route
+          path={"/"}
+          element={
+            <TitleWithComponent title={"Home"}>
+              <Home></Home>
+            </TitleWithComponent>
+          }
+        ></Route>
+        <Route
+          path={"/home"}
+          element={
+            <TitleWithComponent title="Home">
+              <Home></Home>
+            </TitleWithComponent>
+          }
+        ></Route>
+        <Route
+          path={"/about"}
+          element={
+            <TitleWithComponent title="About">
+              <About></About>
+            </TitleWithComponent>
+          }
+        ></Route>
         <Route
           path={"/private"}
           element={
-            <RequireAuth>
-              <Private></Private>
-            </RequireAuth>
+            <TitleWithComponent title="Private">
+              <RequireAuth>
+                <Private></Private>
+              </RequireAuth>
+            </TitleWithComponent>
           }
         ></Route>
-        <Route path={"/logIn"} element={<LogIn></LogIn>}></Route>
-        <Route path={"/register"} element={<Register></Register>}></Route>
-        <Route path={"*"} element={<NotFound></NotFound>}></Route>
+        <Route
+          path={"/logIn"}
+          element={
+            <TitleWithComponent title="LogIn">
+              <LogIn></LogIn>
+            </TitleWithComponent>
+          }
+        ></Route>
+        <Route
+          path={"/register"}
+          element={
+            <TitleWithComponent title="Register">
+              <Register></Register>
+            </TitleWithComponent>
+          }
+        ></Route>
+        <Route
+          path={"*"}
+          element={
+            <TitleWithComponent title="Not Found">
+              <NotFound></NotFound>
+            </TitleWithComponent>
+          }
+        ></Route>
       </Routes>
     </div>
   );
